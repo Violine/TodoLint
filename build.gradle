@@ -1,0 +1,31 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+dependencies {
+    compileOnly(libs.lint.api)
+    compileOnly(libs.lint.checks)
+}
+
+gradlePlugin {
+    plugins {
+        todoLint {
+            id = 'ru.rustore.todolint'
+            implementationClass = 'ru.rustore.todolint.plugin.TodoLintPlugin'
+        }
+    }
+}
+
+group = 'ru.rustore.todolint'
+version = '1.0.0'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'todoLint'
+            from components.java
+        }
+    }
+}

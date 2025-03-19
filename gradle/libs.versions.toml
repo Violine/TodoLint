@@ -1,0 +1,17 @@
+[versions]
+agp = "8.9.0"
+kotlin = "2.0.21"
+
+# Lint
+# Версия высчитывается по формуле: lintVersion = gradlePluginVersion + 23.0.0
+# (см. https://googlesamples.github.io/android-custom-lint-rules/api-guide.html#example:samplelintcheckgithubproject/lintversion?)
+lint = "31.4.2"
+
+[libraries]
+lint-api = { group = "com.android.tools.lint", name = "lint-api", version.ref = "lint" }
+lint-checks = { group = "com.android.tools.lint", name = "lint-checks", version.ref = "lint" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
